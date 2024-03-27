@@ -1,0 +1,15 @@
+FROM node
+
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+
+RUN mkdir -p /home/code
+
+WORKDIR /home/code
+
+COPY . /home/code
+
+RUN pnpm install
+
+RUN pnpm dev
+
+EXPOSE 3000
