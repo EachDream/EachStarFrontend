@@ -38,5 +38,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/ftk/each-star:${{ steps.date.outputs.today }}
+            ghcr.io/ftk/each-star:${{ GITHUB_RUN_ID }}
             ghcr.io/ftk/each-star:latest
