@@ -38,5 +38,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME_PART }}:${{ env.REF_NAME }}
-            ghcr.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME_PART }}:latest
+            ghcr.io/ftk/each-star:${{ steps.date.outputs.today }}
+            ghcr.io/ftk/each-star:latest
