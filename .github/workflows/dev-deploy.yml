@@ -7,8 +7,8 @@ on:
       - dev
 
 jobs:
-  build_docker:
-    name: Build docker
+  build-image:
+    name: Build Images
     environment: development
     runs-on: ubuntu-latest
     permissions:
@@ -46,6 +46,14 @@ jobs:
             ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }}
             ftlikon/each_star_frontend_dev:latest
 
+  deploy-image-to-server:
+    name: Deploy Images To Server
+    environment: development
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
       - name: Deploy to Remote Server
         uses: garygrossgarten/github-action-ssh@release
         with:
