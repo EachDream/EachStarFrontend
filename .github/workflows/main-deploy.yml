@@ -50,3 +50,12 @@ jobs:
           tags: |
             ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
             ftlikon/each_star_frontend_prod:latest
+
+    steps:
+      - name: Deploy to server
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ls -a
+          host: ${{ secrets.DEPLOY_SERVER }}
+          username: ubuntu
+          password: ${{ secrets.SERVER_PASSWORD }}
