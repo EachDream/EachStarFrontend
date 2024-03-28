@@ -49,6 +49,7 @@ jobs:
   deploy-image-to-server:
     name: Deploy Images To Server
     environment: development
+    needs: build-image
     runs-on: ubuntu-latest
     permissions:
       contents: read
