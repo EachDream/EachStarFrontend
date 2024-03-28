@@ -15,10 +15,6 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Output Environment Variables
-        run: |
-          echo "Hello, this is a text output ${{ secrets.DOCKERHUB_USERNAME }}"
-          echo "Hello, this is a text output ${GITHUB_SHA}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,8 +28,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # Create Docker Image in Github
-      - name: Login to the GitHub Container Registry
+      - name: Login to the DockerHub Container Registry
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -51,7 +46,7 @@ jobs:
             ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
             ftlikon/each_star_frontend_prod:latest
 
-      - name: Deploy to server
+      - name: Deploy to Remote Server
         uses: garygrossgarten/github-action-ssh@release
         with:
           host: ${{ secrets.DEPLOY_SERVER }}
