@@ -64,14 +64,17 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
-      - name: Deploy to Remote Server
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          host: ${{ secrets.DEPLOY_SERVER }}
-          username: ubuntu
-          password: ${{ secrets.SERVER_PASSWORD }}
-          command: |
-            sudo docker ps -a | sudo grep "each_star_frontend_prod" | sudo awk '{print $1}' | sudo xargs docker rm -f
-            sudo docker images | sudo grep "each_star_frontend_prod" | sudo awk '{print $3}' | sudo xargs docker rmi -f
-            sudo docker pull ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2999:3000 ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
+      - name: Deploy to Remote Server (Retry 2 times)
+        uses: Wandalen/wretry.action@master
+        with: 
+          attempt_limit: 2
+          action: garygrossgarten/github-action-ssh@release
+          with: |
+            host: ${{ secrets.DEPLOY_SERVER }}
+            username: ubuntu
+            password: ${{ secrets.SERVER_PASSWORD }}
+            command: |
+              sudo docker ps -a | sudo grep "each_star_frontend_prod" | sudo awk '{print $1}' | sudo xargs docker rm -f
+              sudo docker images | sudo grep "each_star_frontend_prod" | sudo awk '{print $3}' | sudo xargs docker rmi -f
+              sudo docker pull ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2999:3000 ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
 
