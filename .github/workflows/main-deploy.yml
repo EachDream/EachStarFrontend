@@ -16,10 +16,11 @@ jobs:
       packages: write
     steps:
       - name: Output Environment Variables
-        run: echo "Hello, this is a text output ${{ secrets.DOCKERHUB_USERNAME }}"
-        run: echo "Hello, this is a text output ${{ production.DOCKERHUB_USERNAME }}"
-        run: echo "Hello, this is a text output ${{ DOCKERHUB_USERNAME }}"
-        run: echo "Hello, this is a text output ${{ env.DOCKERHUB_USERNAME }}"
+        run: |
+          echo "Hello, this is a text output ${{ secrets.DOCKERHUB_USERNAME }}"
+          echo "Hello, this is a text output ${{ production.DOCKERHUB_USERNAME }}"
+          echo "Hello, this is a text output ${{ DOCKERHUB_USERNAME }}"
+          echo "Hello, this is a text output ${{ env.DOCKERHUB_USERNAME }}"
 
       - name: Checkout
         uses: actions/checkout@v4
