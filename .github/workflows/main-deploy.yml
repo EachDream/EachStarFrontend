@@ -18,7 +18,7 @@ jobs:
       - name: Output Environment Variables
         run: |
           echo "Hello, this is a text output ${{ secrets.DOCKERHUB_USERNAME }}"
-          echo "Hello, this is a text output $GITHUB_SHA"
+          echo "Hello, this is a text output ${GITHUB_SHA}"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,5 +48,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ftlikon/each_star_frontend_prod:$GITHUB_SHA
+            ftlikon/each_star_frontend_prod:${GITHUB_SHA}
             ftlikon/each_star_frontend_prod:latest
