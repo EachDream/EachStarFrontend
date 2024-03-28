@@ -55,6 +55,15 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Deploy to Remote Server
         uses: garygrossgarten/github-action-ssh@release
         with:
