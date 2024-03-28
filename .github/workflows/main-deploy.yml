@@ -48,4 +48,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ftlikon/each-star:latest
+            ftlikon/each_star_frontend_prod:${{ GITHUB_SHA }}
+            ftlikon/each_star_frontend_prod:latest
