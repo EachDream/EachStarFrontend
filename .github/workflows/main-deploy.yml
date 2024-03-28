@@ -55,5 +55,5 @@ jobs:
           command: |
             sudo docker ps -a | sudo grep "each_star_frontend_prod" | sudo awk '{print $1}' | sudo xargs docker rm -f
             sudo docker images | sudo grep "each_star_frontend_prod" | sudo awk '{print $3}' | sudo xargs docker rmi -f
-            sudo docker pull ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2999:3000 ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
+            sudo docker pull ftlikon/each_star_frontend_prod:latest && sudo docker run -d -p 2999:3000 ftlikon/each_star_frontend_prod:latest
 
