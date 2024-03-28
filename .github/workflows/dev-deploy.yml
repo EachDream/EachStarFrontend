@@ -1,14 +1,14 @@
-name: Build Image & Deploy Server (Prod)
+name: Build Image & Deploy Server (Dev)
 
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build-image:
     name: Build Images
-    environment: production
+    environment: development
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,16 +38,16 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile.prod
+          file: ./Dockerfile.dev
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
-            ftlikon/each_star_frontend_prod:latest
+            ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }}
+            ftlikon/each_star_frontend_dev:latest
 
   deploy-image-to-server:
     name: Deploy Images To Server
-    environment: production
+    environment: development
     needs: build-image
     runs-on: ubuntu-latest
     permissions:
@@ -73,7 +73,7 @@ jobs:
             username: ubuntu
             password: ${{ secrets.SERVER_PASSWORD }}
             command: |
-              sudo docker ps -a | sudo grep "each_star_frontend_prod" | sudo awk '{print $1}' | sudo xargs docker rm -f
-              sudo docker images | sudo grep "each_star_frontend_prod" | sudo awk '{print $3}' | sudo xargs docker rmi -f
-              sudo docker pull ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2999:3000 ftlikon/each_star_frontend_prod:${{ env.GITHUB_SHA }}
+              sudo docker ps -a | sudo grep "each_star_frontend_dev" | sudo awk '{print $1}' | sudo xargs docker rm -f
+              sudo docker images | sudo grep "each_star_frontend_dev" | sudo awk '{print $3}' | sudo xargs docker rmi -f
+              sudo docker pull ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2998:3000 ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }}
 
