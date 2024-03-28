@@ -18,8 +18,7 @@ jobs:
       - name: Output Environment Variables
         run: |
           echo "Hello, this is a text output ${{ secrets.DOCKERHUB_USERNAME }}"
-          echo "Hello, this is a text output ${{ DOCKERHUB_USERNAME }}"
-          echo "Hello, this is a text output ${{ DOCKERHUB_USERNAME }}"
+          echo "Hello, this is a text output ${{ secrets.GITHUB_TOKEN }}"
           echo "Hello, this is a text output ${{ env.DOCKERHUB_USERNAME }}"
 
       - name: Checkout
