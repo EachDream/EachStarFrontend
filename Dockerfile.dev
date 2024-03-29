@@ -8,8 +8,9 @@ WORKDIR /app
 
 #RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 RUN pnpm install
+RUN pnpm i -g serve
 
 EXPOSE 3000
 
-CMD [ "pnpm", "run", "dev" ]
-
+CMD [ "pnpm", "generate" ]
+CMD [ "serve", ".output/public"]
