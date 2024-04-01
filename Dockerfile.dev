@@ -7,6 +7,7 @@ COPY . /app
 WORKDIR /app
 
 #RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+RUN ls -l
 RUN pnpm install
 RUN pnpm i -g serve
 RUN npx nuxi generate

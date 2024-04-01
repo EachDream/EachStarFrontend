@@ -28,6 +28,7 @@ jobs:
         run: |
           echo "$CERTIFICATE_CONTENT" > each-star.com_bundle.pem
           echo "$KEY_CONTENT" > each-star.com.key
+          ls -l
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
