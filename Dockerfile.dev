@@ -13,4 +13,4 @@ RUN pnpm i -g serve
 EXPOSE 3000
 
 CMD [ "npx", "nuxi" "generate" ]
-CMD [ "serve", ".output/public"]
+CMD [ "npx", "serve", ".output/public"]
