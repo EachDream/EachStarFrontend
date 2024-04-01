@@ -21,6 +21,14 @@ jobs:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
+      - name: Copy SSL Certificates
+        env:
+          CERTIFICATE_CONTENT: ${{ secrets.SSL_PEM }}
+          KEY_CONTENT: ${{ secrets.SSL_KEY }}
+        run: |
+          echo "$CERTIFICATE_CONTENT" > each-star.com_bundle.pem
+          echo "$KEY_CONTENT" > each-star.com.key
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
