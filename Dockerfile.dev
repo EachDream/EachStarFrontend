@@ -9,8 +9,8 @@ WORKDIR /app
 #RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 RUN pnpm install
 RUN pnpm i -g serve
+RUN npx nuxi generate
 
 EXPOSE 3000
 
-CMD [ "npx", "nuxi" "generate" ]
 CMD [ "npx", "serve", ".output/public"]
