@@ -13,4 +13,4 @@ RUN npx nuxi generate
 
 EXPOSE 3000
 
-CMD [ "npx", "serve", ".output/public"]
+CMD [ "npx", "serve", ".output/public", "--ssl-cert", "each-star.com_bundle.pem", "--ssl-key", "each-star.com.key"]
