@@ -1,43 +1,28 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 const bgClass = computed(() => {
-  return colorMode.preference === 'dark' ? "linear-bkg-dark" : "linear-bkg-light"
-})
+  return colorMode.preference === "dark"
+    ? "linear-bkg-dark"
+    : "linear-bkg-light";
+});
 </script>
 
 <template>
-  <div
-    class="stars-wrapper"
-    :class="bgClass"
-  >
+  <div class="stars-wrapper" :class="bgClass">
     <template v-if="colorMode.preference === 'dark'">
-      <svg
-        class="stars"
-        width="100%"
-        height="100%"
-        preserveAspectRatio="none"
-      >
+      <svg class="stars" width="100%" height="100%" preserveAspectRatio="none">
         <circle
           v-for="_ in 160"
+          :key="_"
           class="star"
           :cx="Math.round(Math.random() * 10000) / 100 + '%'"
           :cy="Math.round(Math.random() * 10000) / 100 + '%'"
           :r="Math.round((Math.random() + 0.5) * 10) / 10"
         />
       </svg>
-      <svg
-        class="extras"
-        width="100%"
-        height="100%"
-        preserveAspectRatio="none"
-      >
+      <svg class="extras" width="100%" height="100%" preserveAspectRatio="none">
         <defs>
-          <radialGradient
-            id="comet-gradient"
-            cx="0"
-            cy=".5"
-            r="0.5"
-          >
+          <radialGradient id="comet-gradient" cx="0" cy=".5" r="0.5">
             <stop
               offset="0%"
               :style="{ 'stop-color': 'rgba(255,255,255,.8)' }"
@@ -104,19 +89,28 @@ const bgClass = computed(() => {
 
 .linear-bkg {
   &-dark {
-    background: linear-gradient(var(--each-star-bg-0), var(--each-star-bg-1), var(--each-star-bg-2))
+    background: linear-gradient(
+      var(--each-star-bg-0),
+      var(--each-star-bg-1),
+      var(--each-star-bg-2)
+    );
   }
 
   &-light {
     --each-star-bg-0: #f8f8f8;
     --each-star-bg-1: #e0e0f6;
     --each-star-bg-2: #d6c6ea;
-    background: linear-gradient(var(--each-star-bg-0) 30%, var(--each-star-bg-1) 75%, var(--each-star-bg-2))
+    background: linear-gradient(
+      var(--each-star-bg-0) 30%,
+      var(--each-star-bg-1) 75%,
+      var(--each-star-bg-2)
+    );
   }
 }
 
 .stars-wrapper {
-  transition: --each-star-bg-0 0.2s, --each-star-bg-1 0.4s, --each-star-bg-2 0.8s;
+  transition: --each-star-bg-0 0.2s, --each-star-bg-1 0.4s,
+    --each-star-bg-2 0.8s;
   z-index: -1;
   position: absolute;
   inset: 0;
@@ -128,7 +122,6 @@ const bgClass = computed(() => {
   .stars {
     position: absolute;
 
-
     @keyframes twinkle {
       25% {
         opacity: 0;
@@ -136,7 +129,6 @@ const bgClass = computed(() => {
     }
   }
 }
-
 
 .star {
   fill: white;
