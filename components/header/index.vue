@@ -1,28 +1,27 @@
 <script setup lang="ts">
+import { useBreakpoint } from '~/composables/use-breakpoint'
+
+const breakpoints = useBreakpoint()
+const isMobile: Ref<boolean> = breakpoints.isMobile
 </script>
 
 <template>
   <div class="navbar">
     <!-- logo -->
-    <div class="flex-1 gap-2">
-      <NuxtLink
-        class="logo"
-        to="/"
-      >
-        <img
-          class="logo__img"
-          src="~/assets/logo.png"
-          alt="Logo"
-        >
-        EachStar
-      </NuxtLink>
+    <NuxtLink class="logo" to="/">
+      <img class="logo__img" src="~/assets/logo.png" alt="Logo" />
+      EachStar
+    </NuxtLink>
+
+    <!-- menu -->
+    <div class="flex-1 gap-1 lg:gap-4 flex justify-center">
       <NuxtLink
         class="link tooltip tooltip-bottom"
         data-tip="回到 EachStar 首页"
         to="/"
       >
         <Icon name="mingcute:home-3-line" />
-        首页
+        <span v-show="!isMobile">首页</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
@@ -30,7 +29,7 @@
         to="/card"
       >
         <Icon name="mingcute:album-2-line" />
-        卡片
+        <span v-show="!isMobile">卡片</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
@@ -38,17 +37,17 @@
         to="/about"
       >
         <Icon name="mingcute:information-line" />
-        关于
+        <span v-show="!isMobile">关于</span>
       </NuxtLink>
     </div>
 
-    <!-- nav -->
+    <!-- profile / settings -->
     <div class="flex items-center gap-2">
       <ThemeController
         class="tooltip tooltip-bottom"
         data-tip="切换颜色模式"
         size="22"
-        type="toggle"
+        type="TOGGLE"
       />
       <ProfileDrawer />
     </div>
@@ -57,19 +56,25 @@
 
 <style lang="scss" scoped>
 .navbar {
-  @apply px-[180px] backdrop-blur-lg;
-  background: none;
+  @apply backdrop-blur-lg;
+  @apply px-2 md:px-44;
+  transition: all 0.15s ease;
 
   .logo {
     @apply btn btn-ghost text-2xl;
+    @apply md:text-xl;
 
     &__img {
-      @apply h-[32px];
+      @apply h-8;
     }
   }
 
   .link {
-    @apply btn btn-ghost text-lg gap-1;
+    @apply btn btn-ghost text-lg;
+
+    * {
+      @apply md:mx-[-3px] lg:mx-0;
+    }
   }
 }
 </style>

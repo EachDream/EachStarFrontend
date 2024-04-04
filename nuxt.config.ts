@@ -2,21 +2,30 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   imports: {
-    presets: [
-      {
-        from: "vue-i18n",
-        imports: ["useI18n"],
-      },
-    ],
+    // presets: [
+    //   {
+    //     from: 'vue-i18n',
+    //     imports: ['useI18n'],
+    //   },
+    // ],
+  },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1, minimum-scale=1.0',
+    },
   },
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
-    "@nuxtjs/eslint-module",
-    "@nuxtjs/i18n",
-    "@formkit/auto-animate",
-    "@vueuse/nuxt",
-    "@nuxtjs/color-mode",
-    "nuxt-icon",
+    '@formkit/auto-animate',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
+    '@vueuse/nuxt',
+    '@pinia/nuxt',
+    'nuxt-icon',
   ],
-});
+  eslint: {
+    lintOnStart: false,
+  },
+})

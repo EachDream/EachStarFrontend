@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Profile from "~/components/profile-drawer/profile.vue";
+import Profile from '~/components/profile-drawer/profile.vue'
 
 const toggleBtnEl = ref<HTMLInputElement>()
 const close = async () => {
@@ -8,22 +8,15 @@ const close = async () => {
 </script>
 
 <template>
-  <div
-    class="drawer drawer-end"
-  >
+  <div class="drawer drawer-end">
     <input
       id="my-drawer"
       ref="toggleBtnEl"
       type="checkbox"
       class="drawer-toggle"
-    >
+    />
     <div class="drawer-content">
-      <label
-        for="my-drawer"
-        class="btn btn-ghost"
-      >
-        你好, Nesb01t !
-      </label>
+      <label for="my-drawer" class="btn btn-ghost"> 你好, Nesb01t ! </label>
     </div>
     <div class="drawer-side">
       <label

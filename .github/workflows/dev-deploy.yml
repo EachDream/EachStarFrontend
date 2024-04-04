@@ -14,7 +14,6 @@ jobs:
       contents: read
       packages: write
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -73,7 +72,7 @@ jobs:
 
       - name: Deploy to Remote Server (Retry 2 times)
         uses: Wandalen/wretry.action@master
-        with: 
+        with:
           attempt_limit: 2
           action: garygrossgarten/github-action-ssh@release
           with: |
@@ -84,4 +83,3 @@ jobs:
               sudo docker ps -a | sudo grep "each_star_frontend_dev" | sudo awk '{print $1}' | sudo xargs docker rm -f
               sudo docker images | sudo grep "each_star_frontend_dev" | sudo awk '{print $3}' | sudo xargs docker rmi -f
               sudo docker pull ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }} && sudo docker run -d -p 2998:3000 ftlikon/each_star_frontend_dev:${{ env.GITHUB_SHA }}
-
