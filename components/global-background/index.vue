@@ -8,75 +8,63 @@ const bgClass = computed(() => {
 </script>
 
 <template>
-  <div class="app-fullpage-wrapper">
-    <div class="stars-wrapper" :class="bgClass">
-      <template v-if="colorMode.preference === 'dark'">
-        <svg
-          class="stars"
-          width="100%"
-          height="100%"
-          preserveAspectRatio="none"
-        >
-          <circle
-            v-for="_ in 160"
-            :key="_"
-            class="star"
-            :cx="Math.round(Math.random() * 10000) / 100 + '%'"
-            :cy="Math.round(Math.random() * 10000) / 100 + '%'"
-            :r="Math.round((Math.random() + 0.5) * 10) / 10"
+  <div class="stars-wrapper" :class="bgClass">
+    <template v-if="colorMode.preference === 'dark'">
+      <svg class="stars" width="100%" height="100%" preserveAspectRatio="none">
+        <circle
+          v-for="_ in 160"
+          :key="_"
+          class="star"
+          :cx="Math.round(Math.random() * 10000) / 100 + '%'"
+          :cy="Math.round(Math.random() * 10000) / 100 + '%'"
+          :r="Math.round((Math.random() + 0.5) * 10) / 10"
+        />
+      </svg>
+      <svg class="extras" width="100%" height="100%" preserveAspectRatio="none">
+        <defs>
+          <radialGradient id="comet-gradient" cx="0" cy=".5" r="0.5">
+            <stop
+              offset="0%"
+              :style="{ 'stop-color': 'rgba(255,255,255,.8)' }"
+            />
+            <stop
+              offset="100%"
+              :style="{ 'stop-color': 'rgba(255,255,255,0)' }"
+            />
+          </radialGradient>
+        </defs>
+        <g transform="rotate(-135)">
+          <ellipse
+            class="comet comet-a"
+            fill="url(#comet-gradient)"
+            cx="0"
+            cy="0"
+            rx="150"
+            ry="2"
           />
-        </svg>
-        <svg
-          class="extras"
-          width="100%"
-          height="100%"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <radialGradient id="comet-gradient" cx="0" cy=".5" r="0.5">
-              <stop
-                offset="0%"
-                :style="{ 'stop-color': 'rgba(255,255,255,.8)' }"
-              />
-              <stop
-                offset="100%"
-                :style="{ 'stop-color': 'rgba(255,255,255,0)' }"
-              />
-            </radialGradient>
-          </defs>
-          <g transform="rotate(-135)">
-            <ellipse
-              class="comet comet-a"
-              fill="url(#comet-gradient)"
-              cx="0"
-              cy="0"
-              rx="150"
-              ry="2"
-            />
-          </g>
-          <g transform="rotate(20)">
-            <ellipse
-              class="comet comet-b"
-              fill="url(#comet-gradient)"
-              cx="100%"
-              cy="0"
-              rx="150"
-              ry="2"
-            />
-          </g>
-          <g transform="rotate(300)">
-            <ellipse
-              class="comet comet-c"
-              fill="url(#comet-gradient)"
-              cx="40%"
-              cy="100%"
-              rx="150"
-              ry="2"
-            />
-          </g>
-        </svg>
-      </template>
-    </div>
+        </g>
+        <g transform="rotate(20)">
+          <ellipse
+            class="comet comet-b"
+            fill="url(#comet-gradient)"
+            cx="100%"
+            cy="0"
+            rx="150"
+            ry="2"
+          />
+        </g>
+        <g transform="rotate(300)">
+          <ellipse
+            class="comet comet-c"
+            fill="url(#comet-gradient)"
+            cx="40%"
+            cy="100%"
+            rx="150"
+            ry="2"
+          />
+        </g>
+      </svg>
+    </template>
   </div>
 </template>
 
@@ -118,13 +106,6 @@ const bgClass = computed(() => {
       var(--each-star-bg-2)
     );
   }
-}
-
-.app-fullpage-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
 }
 
 .stars-wrapper {

@@ -1,16 +1,13 @@
 <script setup lang="ts">
-enum ThemeControllerType {
-  TOGGLE,
-  SELECT,
-}
+type ThemeControllerType = 'TOGGLE' | 'SELECT'
 
 withDefaults(
   defineProps<{
-    type: keyof typeof ThemeControllerType | ThemeControllerType
+    type: string
     size?: string | number
   }>(),
   {
-    type: ThemeControllerType.TOGGLE,
+    type: 'TOGGLE',
     size: '18px',
   },
 )
@@ -28,7 +25,7 @@ watch(
 
 <template>
   <div :style="{ fontSize: size }" class="flex items-center justify-center">
-    <label v-if="type == ThemeControllerType.TOGGLE" class="swap swap-rotate">
+    <label v-if="type == 'TOGGLE'" class="swap swap-rotate">
       <input
         :checked="colorMode.preference !== 'dark'"
         type="checkbox"
@@ -49,7 +46,7 @@ watch(
     </label>
 
     <select
-      v-else-if="type == ThemeControllerType.SELECT"
+      v-else-if="type == 'SELECT'"
       v-model="colorMode.preference"
       class="btn"
     >

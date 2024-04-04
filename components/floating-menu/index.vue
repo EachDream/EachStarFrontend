@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // 初始化时渐变色
 const opacity = ref(0)
-const el = ref<HTMLElement | null>(null)
 onMounted(() => {
   opacity.value = 1
 })
@@ -26,7 +25,7 @@ const subscribeEachStar = () => {
 </script>
 
 <template>
-  <ul ref="el" class="floating-menu" :style="{ opacity }">
+  <ul class="floating-menu" :style="{ opacity }">
     <li>
       <a
         class="tooltip tooltip-left"
@@ -62,9 +61,9 @@ const subscribeEachStar = () => {
 
 <style lang="scss" scoped>
 .floating-menu {
-  @apply menu bg-base-200 shadow-lg rounded-box absolute m-0 gap-1;
-  right: 50px;
-  bottom: 20%;
+  @apply menu bg-base-200 shadow-lg rounded-box fixed m-0 gap-1;
+  right: 4%;
+  bottom: 12%;
   transition: opacity 1s ease-in;
 
   &:hover {

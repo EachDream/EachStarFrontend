@@ -16,7 +16,9 @@ const close = async () => {
       class="drawer-toggle"
     />
     <div class="drawer-content">
-      <label for="my-drawer" class="btn btn-ghost"> 你好, Nesb01t ! </label>
+      <label for="my-drawer" class="btn btn-ghost">
+        <slot />
+      </label>
     </div>
     <div class="drawer-side">
       <label

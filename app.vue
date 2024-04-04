@@ -15,23 +15,23 @@ const { style } = useFitScaleWindow()
   <div class="app-root">
     <!-- bkg / nav / floating items -->
     <GlobalBackground />
-    <Header :style="style" />
+    <Header />
     <FloatingMenu />
 
     <!-- router view -->
-    <NuxtPage :style="style" />
+    <NuxtPage />
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html,
 body {
   width: 100%;
   height: 100%;
-  min-width: 640px;
   box-sizing: content-box;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 </style>

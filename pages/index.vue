@@ -6,15 +6,15 @@ onMounted(() => {
 })
 
 const expanded = ref(false)
+const marginTopStyle = computed(() => {
+  return {
+    marginTop: expanded ? '50px' : '100px',
+  }
+})
 </script>
 
 <template>
-  <div
-    class="index-page"
-    :style="{
-      marginTop: expanded ? '50px' : '200px',
-    }"
-  >
+  <div class="index-page" :style="marginTopStyle">
     <div class="text-5xl font-bold">EachStar 开源互助平台</div>
     <div class="text-xl">
       <div class="line text-base-content/60">

@@ -14,14 +14,14 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
     </NuxtLink>
 
     <!-- menu -->
-    <div class="flex-1 gap-1 lg:gap-4 flex justify-center">
+    <div v-show="!isMobile" class="flex-1 gap-1 lg:gap-4 flex justify-center">
       <NuxtLink
         class="link tooltip tooltip-bottom"
         data-tip="回到 EachStar 首页"
         to="/"
       >
         <Icon name="mingcute:home-3-line" />
-        <span v-show="!isMobile">首页</span>
+        <span class="link__text">首页</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
@@ -29,7 +29,7 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
         to="/card"
       >
         <Icon name="mingcute:album-2-line" />
-        <span v-show="!isMobile">卡片</span>
+        <span class="link__text">卡片</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
@@ -37,19 +37,22 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
         to="/about"
       >
         <Icon name="mingcute:information-line" />
-        <span v-show="!isMobile">关于</span>
+        <span class="link__text">关于</span>
       </NuxtLink>
     </div>
 
     <!-- profile / settings -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center">
       <ThemeController
+        v-show="!isMobile"
         class="tooltip tooltip-bottom"
         data-tip="切换颜色模式"
         size="22"
         type="TOGGLE"
       />
-      <ProfileDrawer />
+      <ProfileDrawer
+        ><div class="text-lg truncate">你好, Nesb01t !</div></ProfileDrawer
+      >
     </div>
   </div>
 </template>
@@ -58,11 +61,13 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
 .navbar {
   @apply backdrop-blur-lg;
   @apply px-2 md:px-44;
+  @apply flex justify-between;
+  max-width: 100%;
   transition: all 0.15s ease;
 
   .logo {
-    @apply btn btn-ghost text-2xl;
-    @apply md:text-xl;
+    @apply btn btn-ghost;
+    @apply text-2xl lg:text-3xl;
 
     &__img {
       @apply h-8;
@@ -70,10 +75,12 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
   }
 
   .link {
-    @apply btn btn-ghost text-lg;
+    @apply btn btn-ghost;
+    @apply text-2xl lg:text-lg;
+    transition: all 0.3s ease;
 
-    * {
-      @apply md:mx-[-3px] lg:mx-0;
+    &__text {
+      @apply hidden lg:inline;
     }
   }
 }
