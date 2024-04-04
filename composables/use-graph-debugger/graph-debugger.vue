@@ -45,8 +45,8 @@ const toggleShow = () => {
     </div>
     <div class="debug__actions">
       <a
-        v-for="a in Actions"
-        :key="a.name"
+        v-for="(a, i) in Actions"
+        :key="i"
         class="debug__action"
         @click="a.main()"
         >{{ a.name }}</a

@@ -8,7 +8,7 @@ const props = defineProps<{
   <div class="intro">
     <div class="intro-title">您是否参与或拥有开源项目？</div>
     <div class="intro-card-wrapper">
-      <TutCard />
+      <TutCards />
     </div>
   </div>
 </template>

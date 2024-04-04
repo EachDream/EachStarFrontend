@@ -1,0 +1,19 @@
+{
+  "tut-card": {
+    "beginner": {
+      "title": "Beginner",
+      "description": "This is a beginner tutorial",
+      "btnText": "I'm new"
+    },
+    "intermediate": {
+      "title": "Intermediate",
+      "description": "This is an intermediate tutorial",
+      "btnText": "I'm experienced"
+    },
+    "advanced": {
+      "title": "Advanced",
+      "description": "This is an advanced tutorial",
+      "btnText": "I'm a pro"
+    }
+  }
+}

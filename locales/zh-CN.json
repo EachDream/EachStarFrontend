@@ -1,0 +1,19 @@
+{
+  "tut-card": {
+    "beginner": {
+      "title": "初学者",
+      "description": "刚刚学习代码或想要参与开源项目 (todo: 介绍开源和网站)",
+      "btnText": "我是萌新"
+    },
+    "intermediate": {
+      "title": "熟手",
+      "description": "这是一个中级教程 (todo: 介绍网站)",
+      "btnText": "我是熟手"
+    },
+    "advanced": {
+      "title": "专家",
+      "description": "这是一个高级教程 (todo: 介绍专家)",
+      "btnText": "我是专家"
+    }
+  }
+}

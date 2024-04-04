@@ -28,4 +28,12 @@ export default defineNuxtConfig({
   eslint: {
     lintOnStart: false,
   },
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en-US.json' },
+      { code: 'zh', iso: 'zh-CN', file: 'zh-CN.json' },
+    ],
+    langDir: './locales/',
+    defaultLocale: 'en',
+  },
 })
