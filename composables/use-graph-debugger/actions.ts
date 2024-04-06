@@ -7,7 +7,7 @@ export const Actions: IAction[] = [
   {
     name: 'to intro',
     main: () => {
-      useRouter().push({ name: 'intro' })
+      useRouter().push({ path: '/intro' })
     },
   },
 ]
