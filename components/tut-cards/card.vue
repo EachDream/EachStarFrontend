@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="card w-32 md:w-48 bg-base-100 shadow-xl image-full">
+  <div class="tut-card">
     <figure></figure>
     <div class="card-body">
       <h2 class="card-title">{{ title }}</h2>
@@ -20,4 +20,9 @@ const props = defineProps<{
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.tut-card {
+  @apply card bg-base-100 shadow-xl image-full;
+  @apply w-full h-44 md:w-56 md:h-72;
+}
+</style>

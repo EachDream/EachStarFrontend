@@ -1,4 +1,49 @@
 {
+  "profile": {
+    "title": "User Center",
+    "closeText": "Click anywhere outside to close the personal center"
+  },
+  "home": {
+    "title": "EachStar Open Source Community",
+    "titleline": {
+      "one": "Are you struggling to have your project's value recognized by others?",
+      "two": "Do you want to find developers and user communities to quickly build project influence?",
+      "three": "Join EachStar Open Source Collaboration Platform to help you and your open source project grow together!"
+    },
+    "tagline": {
+      "one": "Quickly build influence and enhance value in the early stages of your project",
+      "two": "Find like-minded open source partners to grow together",
+      "three": "Explore new open source ideas and ignite inspiration in your early projects"
+    },
+    "tryBtnText": "Try Now"
+  },
+  "intro": {
+    "title": "Do you participate in or own an open source project?"
+  },
+  "tut-timeline": {
+    "register": {
+      "title": "Register on EachStar",
+      "line1": "Click on the top right corner to register an account",
+      "line2": "or log in with an existing account"
+    },
+    "auth": {
+      "title": "Authenticate Account",
+      "line1": "Authenticate through OAuth",
+      "line2": "Link with GitHub / Gitee"
+    },
+    "like": {
+      "title": "Like / Publish Projects",
+      "line1": "Accumulate stars by liking others' projects",
+      "line2": "on the card page / personal center",
+      "line3": "Use free stars to publish your own projects"
+    },
+    "learn": {
+      "title": "Continuous Learning and Improvement",
+      "line1": "Join QQ group for more discussions",
+      "line2": "Meet like-minded developers",
+      "copiedText": " Copy Successful! "
+    }
+  },
   "tut-card": {
     "beginner": {
       "title": "Beginner",
@@ -15,5 +60,27 @@
       "description": "This is an advanced tutorial",
       "btnText": "I'm a pro"
     }
+  },
+  "header": {
+    "home": "Home",
+    "card": "Card",
+    "about": "About",
+    "hello": "Hello",
+    "tooltip": {
+      "home": "Back to EachStar home",
+      "card": "Go to Card page",
+      "about": "Go to About page"
+    }
+  },
+  "about": {
+    "title": "About EachStar",
+    "description": "EachStar is an open source community platform that helps developers and open source project owners quickly build influence and enhance value in the early stages of their projects. EachStar provides a platform for developers to find like-minded open source partners to grow together, explore new open source ideas, and ignite inspiration in their early projects.",
+  },
+  "card": {
+    "title": "EachStar Card Collection",
+    "description": "Card is a page where you can view and like other people's projects. You can also publish your own projects here.",
+    "like": "Like",
+    "publish": "Publish",
+    "copiedText": " Copied! "
   }
 }

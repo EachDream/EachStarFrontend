@@ -1,48 +1,58 @@
 <script setup lang="ts">
 import { useBreakpoint } from '~/composables/use-breakpoint'
 
+const { t } = useI18n()
+
 const breakpoints = useBreakpoint()
 const isMobile: Ref<boolean> = breakpoints.isMobile
+
+const userName = ref('NAME_NEED_REPLACE')
 </script>
 
 <template>
   <div class="navbar">
     <!-- logo -->
-    <NuxtLink class="logo" to="/">
-      <img class="logo__img" src="~/assets/logo.png" alt="Logo" />
-      EachStar
-    </NuxtLink>
+    <div class="w-1/3">
+      <NuxtLink class="logo" to="/">
+        <img class="logo__img" src="~/assets/logo.png" alt="Logo" />
+        EachStar
+      </NuxtLink>
+    </div>
 
     <!-- menu -->
-    <div v-show="!isMobile" class="flex-1 gap-1 lg:gap-4 flex justify-center">
+    <div
+      v-show="!isMobile"
+      class="w-1/3 flex-1 gap-1 lg:gap-4 flex justify-center"
+    >
       <NuxtLink
         class="link tooltip tooltip-bottom"
-        data-tip="回到 EachStar 首页"
+        :data-tip="t('header.tooltip.home')"
         to="/"
       >
         <Icon name="mingcute:home-3-line" />
-        <span class="link__text">首页</span>
+        <span class="link__text">{{ t('header.home') }}</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
-        data-tip="浏览 EachStar 卡片"
+        :data-tip="t('header.tooltip.card')"
         to="/card"
       >
         <Icon name="mingcute:album-2-line" />
-        <span class="link__text">卡片</span>
+        <span class="link__text">{{ t('header.card') }}</span>
       </NuxtLink>
       <NuxtLink
         class="link tooltip tooltip-bottom"
-        data-tip="了解 EachStar"
+        :data-tip="t('header.tooltip.about')"
         to="/about"
       >
         <Icon name="mingcute:information-line" />
-        <span class="link__text">关于</span>
+        <span class="link__text">{{ t('header.about') }}</span>
       </NuxtLink>
     </div>
 
     <!-- profile / settings -->
-    <div class="flex items-center">
+    <div class="w-1/3 flex items-center justify-end gap-3">
+      <LocaleController size="20" />
       <ThemeController
         v-show="!isMobile"
         class="tooltip tooltip-bottom"
@@ -50,8 +60,10 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
         size="22"
         type="TOGGLE"
       />
-      <ProfileDrawer
-        ><div class="text-lg truncate">你好, Nesb01t !</div></ProfileDrawer
+      <ProfileDrawer class="max-w-64"
+        ><div class="text-wrap">
+          {{ `${t('header.hello')}, ${userName} !` }}
+        </div></ProfileDrawer
       >
     </div>
   </div>
@@ -76,7 +88,7 @@ const isMobile: Ref<boolean> = breakpoints.isMobile
 
   .link {
     @apply btn btn-ghost;
-    @apply text-2xl lg:text-lg;
+    @apply text-lg;
     transition: all 0.3s ease;
 
     &__text {

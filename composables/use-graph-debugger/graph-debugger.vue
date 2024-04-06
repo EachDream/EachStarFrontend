@@ -75,7 +75,7 @@ const toggleShow = () => {
   }
 
   &__lines {
-    @apply flex flex-col p-2 m-1 mt-2;
+    @apply flex flex-col box-border mt-2 w-full;
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.2);
     min-width: 187px;

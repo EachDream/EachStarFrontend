@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@nuxt/test-utils/module',
     '@formkit/auto-animate',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
@@ -35,5 +36,6 @@ export default defineNuxtConfig({
     ],
     langDir: './locales/',
     defaultLocale: 'en',
+    strategy: 'no_prefix',
   },
 })

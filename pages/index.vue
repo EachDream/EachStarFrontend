@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { themeChange } from 'theme-change'
 
+const { t } = useI18n()
+
 onMounted(() => {
   themeChange(false)
 })
@@ -15,26 +17,26 @@ const marginTopStyle = computed(() => {
 
 <template>
   <div class="index-page" :style="marginTopStyle">
-    <div class="text-5xl font-bold">EachStar 开源互助平台</div>
+    <div class="text-5xl font-bold">{{ t('home.title') }}</div>
     <div class="text-xl">
       <div class="line text-base-content/60">
-        你是否困扰于项目的价值难以被他人发掘<br />
-        希望找到开发者和用户社群快速积累项目影响力？<br />
-        加入 EachStar 开源互助平台, 帮助您和您的开源项目共同快速成长！
+        {{ t('home.titleline.one') }}<br />
+        {{ t('home.titleline.two') }}<br />
+        {{ t('home.titleline.three') }}
       </div>
       <transition name="fade" mode="in-out">
         <div v-if="!expanded">
           <div class="line">
             <Icon name="mingcute:folder-star-line" class="index-page-icon" />
-            项目成立初期快速积累影响力, 提升价值
+            {{ t('home.tagline.one') }}
           </div>
           <div class="line">
             <Icon name="mingcute:user-star-line" class="index-page-icon" />
-            帮助找到志同道合的开源伙伴, 共同成长
+            {{ t('home.tagline.two') }}
           </div>
           <div class="line">
             <Icon name="mingcute:braces-line" class="index-page-icon" />
-            在初期项目中学习开源新思路, 引爆思绪
+            {{ t('home.tagline.three') }}
           </div>
         </div>
       </transition>
@@ -42,7 +44,7 @@ const marginTopStyle = computed(() => {
       <transition mode="out-in" name="fade">
         <TutTimeline v-if="expanded" @click="expanded = false" />
         <a v-else class="index-page-btn" @click="expanded = true"
-          >马上尝试
+          >{{ t('home.tryBtnText') }}
           <Icon
             name="mingcute:arrow-right-circle-fill"
             class="index-page-btn__icon"

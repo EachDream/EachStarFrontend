@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const copyFeedback = ref(false)
 const copy = async (val: any) => {
   if (copyFeedback.value) {
@@ -14,11 +16,11 @@ const copy = async (val: any) => {
 <template>
   <ul class="tut-timeline">
     <li>
-      <div class="timeline-start">注册 EachStar</div>
+      <div class="timeline-start">{{ t('tut-timeline.register.title') }}</div>
       <Icon class="timeline-middle" name="mingcute:user-4-fill" />
       <div class="timeline-end timeline-box">
-        点击右上角注册账号<br />
-        或登录现有账号
+        {{ t('tut-timeline.register.line1') }}<br />
+        {{ t('tut-timeline.register.line2') }}
       </div>
       <hr />
     </li>
@@ -26,37 +28,39 @@ const copy = async (val: any) => {
       <hr />
       <div class="timeline-start">
         <div class="flex flex-col items-center">
-          <div>认证账号</div>
+          <div>{{ t('tut-timeline.auth.title') }}</div>
           <div>GitHub / Gitee</div>
         </div>
       </div>
       <Icon class="timeline-middle" name="mingcute:bookmarks-fill" />
       <div class="timeline-end timeline-box">
-        通过 OAuth 认证<br />
-        链接 GitHub / Gitee
+        {{ t('tut-timeline.auth.line1') }}<br />
+        {{ t('tut-timeline.auth.line2') }}
       </div>
       <hr />
     </li>
     <li>
       <hr />
-      <div class="timeline-start">点赞 / 发布项目</div>
+      <div class="timeline-start">{{ t('tut-timeline.like.title') }}</div>
       <Icon class="timeline-middle" name="mingcute:thumb-up-2-fill" />
       <div class="timeline-end timeline-box">
-        通过为他人点赞积累星币<br />
-        于卡片页面 / 个人中心<br />
-        使用免费的星币发布自己的项目
+        {{ t('tut-timeline.like.line1') }}<br />
+        {{ t('tut-timeline.like.line2') }}<br />
+        {{ t('tut-timeline.like.line3') }}
       </div>
       <hr />
     </li>
     <li>
       <hr />
-      <div class="timeline-start">持续学习与进步</div>
+      <div class="timeline-start">{{ t('tut-timeline.learn.title') }}</div>
       <Icon class="timeline-middle" name="mingcute:message-3-fill" />
       <div class="timeline-end timeline-box">
-        加入 QQ 群讨论更多<br />
-        认识志同道合的开发者<br />
+        {{ t('tut-timeline.learn.line1') }}<br />
+        {{ t('tut-timeline.learn.line2') }}<br />
         <transition name="fade" mode="out-in">
-          <a v-if="copyFeedback" class="link-copiable"> 复制成功 ! </a>
+          <a v-if="copyFeedback" class="link-copiable">{{
+            t('tut-timeline.learn.copiedText')
+          }}</a>
           <a v-else class="link-copiable" @click.stop="copy('184109839')">
             <Icon name="mingcute:qq-fill" size="18" />
             184109839

@@ -26,7 +26,9 @@ const close = async () => {
         aria-label="close sidebar"
         class="drawer-overlay"
       />
-      <ul class="menu w-[600px] h-full p-0 bg-base-100 text-base-content">
+      <ul
+        class="menu max-w-[600px] w-full h-[100vh] p-0 bg-base-100 text-base-content"
+      >
         <Profile @close="close" />
       </ul>
     </div>

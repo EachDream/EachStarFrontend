@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import DemonFace from '~/components/easter-eggs/demon-face.vue'
 
+const { t } = useI18n()
+
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
@@ -25,9 +27,9 @@ const click = (pos: ProfileDrawerClickPos) => {
   <div class="profile" @click="click(ProfileDrawerClickPos.PAGE)">
     <div class="profile-header">
       <div class="w-full flex items-center">
-        <div class="text-2xl font-bold flex-1">个人中心</div>
+        <div class="text-2xl font-bold flex-1">{{ t('profile.title') }}</div>
         <div v-auto-animate class="close-tips">
-          点击任意空白处关闭个人中心
+          {{ t('profile.closeText') }}
           <DemonFace />
         </div>
       </div>

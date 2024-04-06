@@ -5,9 +5,15 @@ export interface IAction {
 
 export const Actions: IAction[] = [
   {
-    name: 'to intro',
+    name: 'router-intro',
     main: () => {
       useRouter().push({ path: '/intro' })
+    },
+  },
+  {
+    name: 'router-preview',
+    main: () => {
+      useRouter().push({ path: '/preview' })
     },
   },
 ]

@@ -1,4 +1,49 @@
 {
+  "profile": {
+    "title": "个人中心",
+    "closeText": "点击任意空白处关闭个人中心"
+  },
+  "home": {
+    "title": "EachStar 开源互助社区",
+    "titleline": {
+      "one": "你是否困扰于项目的价值难以被他人发掘",
+      "two": "希望找到开发者和用户社群快速积累项目影响力？",
+      "three": "加入 EachStar 开源互助平台, 帮助您和您的开源项目共同快速成长！"
+    },
+    "tagline": {
+      "one": "项目成立初期快速积累影响力, 提升价值",
+      "two": "帮助找到志同道合的开源伙伴, 共同成长",
+      "three": "在初期项目中学习开源新思路, 引爆思绪"
+    },
+    "tryBtnText": "马上尝试"
+  },
+  "intro": {
+    "title": "您是否参与或拥有开源项目？"
+  },
+  "tut-timeline": {
+    "register": {
+      "title": "注册 EachStar",
+      "line1": "点击右上角注册账号",
+      "line2": "或登录现有账号"
+    },
+    "auth": {
+      "title": "认证账号",
+      "line1": "通过 OAuth 认证",
+      "line2": "链接 GitHub / Gitee"
+    },
+    "like": {
+      "title": "点赞 / 发布项目",
+      "line1": "通过为他人点赞积累星币",
+      "line2": "于卡片页面 / 个人中心",
+      "line3": "使用免费的星币发布自己的项目"
+    },
+    "learn": {
+      "title": "持续学习与进步",
+      "line1": "加入 QQ 群讨论更多",
+      "line2": "认识志同道合的开发者",
+      "copiedText": " 复制成功 ! "
+    }
+  },
   "tut-card": {
     "beginner": {
       "title": "初学者",
@@ -15,5 +60,27 @@
       "description": "这是一个高级教程 (todo: 介绍专家)",
       "btnText": "我是专家"
     }
+  },
+  "header": {
+    "home": "首页",
+    "card": "卡片",
+    "about": "关于",
+    "hello": "你好",
+    "tooltip": {
+      "home": "返回 EachStar 首页",
+      "card": "前往卡片页面",
+      "about": "前往关于页面"
+    }
+  },
+  "about": {
+    "title": "关于 EachStar",
+    "description": "EachStar 是一个开源社区平台，帮助开发者和开源项目所有者在项目早期快速建立影响力和增强价值。EachStar 提供了一个平台，让开发者找到志同道合的开源伙伴一起成长，探索新的开源思路，并在早期项目中激发灵感。",
+  },
+  "card": {
+    "title": "EachStar 卡片收藏",
+    "description": "卡片是一个页面，您可以在这里查看和点赞他人的项目。您也可以在这里发布自己的项目。",
+    "like": "点赞",
+    "publish": "发布",
+    "copiedText": " 复制成功！"
   }
 }
