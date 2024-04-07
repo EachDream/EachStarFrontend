@@ -12,7 +12,7 @@ const bgClass = computed(() => {
     <template v-if="colorMode.preference === 'dark'">
       <svg class="stars" width="100%" height="100%" preserveAspectRatio="none">
         <circle
-          v-for="_ in 160"
+          v-for="_ in 120"
           :key="_"
           class="star"
           :cx="Math.round(Math.random() * 10000) / 100 + '%'"
@@ -20,7 +20,7 @@ const bgClass = computed(() => {
           :r="Math.round((Math.random() + 0.5) * 10) / 10"
         />
       </svg>
-      <svg class="extras" width="100%" height="100%" preserveAspectRatio="none">
+      <svg width="100%" height="100%" preserveAspectRatio="none">
         <defs>
           <radialGradient id="comet-gradient" cx="0" cy=".5" r="0.5">
             <stop
@@ -114,7 +114,7 @@ const bgClass = computed(() => {
     --each-star-bg-1 0.4s,
     --each-star-bg-2 0.8s;
   z-index: -1;
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   width: 100%;
@@ -123,6 +123,7 @@ const bgClass = computed(() => {
 
   .stars {
     position: absolute;
+    transition: transform 0.3s;
 
     @keyframes twinkle {
       25% {
@@ -160,6 +161,7 @@ const bgClass = computed(() => {
 .comet {
   transform-origin: center center;
   animation: comet 10s linear infinite;
+  transition: all 0.3s ease;
 
   @keyframes comet {
     0%,

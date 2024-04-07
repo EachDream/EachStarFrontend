@@ -23,9 +23,9 @@ useEventListener('click', (e: Event) => {
     <ul
       tabindex="0"
       :style="dropdownStyle as any"
+      class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32"
       @click="open = false"
       @blur="open = false"
-      class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32"
     >
       <slot name="items" />
     </ul>
